@@ -19,6 +19,6 @@ module.exports = {
     // BEMにマッチさせるのが難しいので無効
     'selector-class-pattern': null,
     // アルファベット順に並べましょう、だなんて面倒だし意味ごとにまとめたいこともあるので無効
-    'order/declaration-block-properties-alphabetical-order': null
+    'order/properties-alphabetical-order': null
   }
 };

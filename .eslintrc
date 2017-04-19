@@ -73,10 +73,6 @@
         "class-methods-use-this": "off",
         // 無名関数を禁止する 無効化 面倒じゃん
         "func-names": "off",
-        // 1ファイルに付きexportしてるのが1つだけの場合、default exportにしてもらう 無効化 ほっといてくれと。
-        "import/prefer-default-export": "off",
-        // フロント向けのライブラリがdevDependenciesに入ってたらダメ 無効化 テスト用のファイルの関係
-        "import/no-extraneous-dependencies": "off",
         // オブジェクトや配列のラストの要素のケツに,を強制する 無効化 やっぱ抵抗ある
         "comma-dangle": "off",
         // importの重複を不許可 無効化 flowtypeのimport typeと相性が悪い
@@ -90,12 +86,24 @@
             // asyncかつアローファンクションはあり
             "asyncArrow": "always"
         }],
+        // 1ファイルに付きexportしてるのが1つだけの場合、default exportにしてもらう 無効化 ほっといてくれと。
+        "import/prefer-default-export": "off",
+        // フロント向けのライブラリがdevDependenciesに入ってたらダメ 無効化 テスト用のファイルの関係
+        "import/no-extraneous-dependencies": "off",
         // importするときに拡張子をつけない 無効化 jsxはつけたい
         "import/extensions": "off",
         // divとかspanとかにマウスとかキーボードのイベントがセットされたら怒る 無効化 ほっといて
         "jsx-a11y/no-static-element-interactions": "off",
         // aタグのhrefが#だと怒る 無効化 別にいいじゃないか
         "jsx-a11y/href-no-hash": "off",
+
+        /*
+         * React
+         */
+        // reactコンポーネントのメソッド順を強制 無効化 flowtypeと相性が悪い
+        "react/sort-comp": "off",
+        // 1ファイルに複数のコンポーネントを定義させない 無効化 やりたいこともある
+        "react/no-multi-comp": "off",
 
         /*
          * 主にサーバ向け

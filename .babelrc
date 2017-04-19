@@ -1,4 +1,7 @@
 {
+    "plugins": [
+        "date-fns"
+    ],
     "env": {
         "development": {
             "presets": [
@@ -6,10 +9,6 @@
                 ["env", { "targets": { "browsers": "last 2 versions" } }],
                 "stage-0",
                 "react"
-            ],
-            "plugins": [
-                "lodash",
-                "date-fns"
             ]
         },
         "production": {
@@ -25,22 +24,14 @@
                 }],
                 "stage-0",
                 "react"
-            ],
-            "plugins": [
-                "lodash",
-                "date-fns"
             ]
         },
         "test": {
             "presets": [
                 "flow",
-                ["env", { "targets": { "browsers": "last 2 versions" } }],
+                ["env", { "targets": { "node": 6.9 } }],
                 "stage-0",
                 "react"
-            ],
-            "plugins": [
-                "lodash",
-                "date-fns"
             ]
         }
     }

@@ -1,10 +1,11 @@
 module.exports = {
   plugins: {
-    'autoprefixer': [
+    'postcss-flexbugs-fixes': {},
+    'postcss-nth-child-fix': {},
+    autoprefixer: [
       'last 2 versions',
       'ie >= 11'
-    ],
-    'css-mqpacker': {}
+    ]
   }
 };
 
