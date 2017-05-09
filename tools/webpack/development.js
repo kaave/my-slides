@@ -1,11 +1,8 @@
 const
-  path = require('path'),
   webpack = require('webpack'),
   BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  StyleLintPlugin = require('stylelint-webpack-plugin'),
-  FlowtypePlugin = require('flowtype-loader/plugin');
+  CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require('./base');
 

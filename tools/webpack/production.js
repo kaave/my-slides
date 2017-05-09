@@ -1,6 +1,4 @@
 const
-  path = require('path'),
-  del = require('del'),
   webpack = require('webpack'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
