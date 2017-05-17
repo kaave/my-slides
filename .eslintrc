@@ -1,8 +1,7 @@
 {
     "extends": [
         "airbnb",
-        "plugin:flowtype/recommended",
-        "plugin:ava/recommended"
+        "plugin:flowtype/recommended"
     ],
 
     "env": {
@@ -13,8 +12,7 @@
 
     "plugins": [
         "flowtype",
-        "flowtype-errors",
-        "ava"
+        "flowtype-errors"
     ],
 
     "parser": "babel-eslint",
@@ -58,7 +56,7 @@
             "varsIgnorePattern": "^_",
             "argsIgnorePattern": "^_"
         }],
-        // 変数関数クラスを定義する前に使わない 変数以外無効 巻き上げられるし気にしなくていいんじゃない？
+        // 変数関数クラスを定義する前に使わない 変数以外無効
         "no-use-before-define": ["error", {
             "functions": false,
             "classes": false
@@ -92,10 +90,6 @@
         "import/no-extraneous-dependencies": "off",
         // importするときに拡張子をつけない 無効化 jsxはつけたい
         "import/extensions": "off",
-        // divとかspanとかにマウスとかキーボードのイベントがセットされたら怒る 無効化 ほっといて
-        "jsx-a11y/no-static-element-interactions": "off",
-        // aタグのhrefが#だと怒る 無効化 別にいいじゃないか
-        "jsx-a11y/href-no-hash": "off",
 
         /*
          * React

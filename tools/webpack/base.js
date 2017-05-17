@@ -3,14 +3,20 @@ const
   glob = require('glob'),
   webpack = require('webpack');
 
+const slides = glob.sync('./source/slides/*')
+  .map(slidePath => slidePath.replace(/\.\/source\/slides\//, ''));
+const entry = {
+  app: [
+    './source/styles/app.scss',
+    './source/scripts/app.js'
+  ]
+};
+
+slides.forEach(slideName => (entry[slideName] = [`./source/slides/${slideName}/index.jsx`]));
+
 module.exports = {
   webpack: {
-    entry: {
-      app: [
-        './source/styles/app.scss',
-        './source/scripts/app.js'
-      ]
-    },
+    entry,
     output: {
       path: path.join(__dirname, '../../build'),
       filename: '[name].js',
@@ -23,9 +29,10 @@ module.exports = {
   views: [
     'index',
     ...glob.sync('./source/views/*.ejs')
-      .map(path => path.replace(/\.\/source\//, ''))
-      .map(path => path.replace(/\.ejs$/, ''))
+      .map(filePath => filePath.replace(/\.\/source\//, ''))
+      .map(filePath => filePath.replace(/\.ejs$/, ''))
   ],
+  slides,
   loaders: [
     {
       test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,

@@ -18,6 +18,13 @@ const plugins = [
     template: `source/${filename}.ejs`,
     filename: `${filename}.html`
   })),
+  ...config.slides.map(slidename => new HtmlWebpackPlugin({
+    title: slidename,
+    inject: false,
+    template: 'source/views/_slide-template.ejs',
+    filename: `${slidename}.html`,
+    script: `${slidename}.js`
+  })),
   new CopyWebpackPlugin(
     [{ from: 'assets' }],
     { ignore: ['.DS_Store'] }

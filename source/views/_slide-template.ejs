@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+<%- include source/views/common/header %>
+<div id="mount-point"></div>
+<%- include source/views/common/footer %>
+<script src='/<%= htmlWebpackPlugin.options.script %>'></script>
+</body>
+</html>

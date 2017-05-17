@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <%- include source/views/common/head %>
 <body>
-    <%- include source/views/common/header %>
-    <div id="root"></div>
-    <%- include source/views/common/footer %>
-    <script src="./app.js"></script>
+<%- include source/views/common/header %>
+<div id="root"></div>
+<main id="main" class="main" role="main">
+    <ul>
+        <li><a href="./2017-06-03-web-push.html">2017/6/3 Push notificationでservice worker入門</a></li>
+        <li><a href="./2017-01-01-sample.html">2017/1/1 サンプル</a></li>
+    </ul>
+</main>
+<%- include source/views/common/footer %>
+<script src="./app.js"></script>
 </body>
 </html>
