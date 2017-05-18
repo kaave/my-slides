@@ -78,8 +78,11 @@
     "babel-polyfill": "^6.23.0",
     "date-fns": "^1.28.4",
     "font-awesome": "^4.7.0",
+    "google-fonts": "^1.0.0",
+    "normalize.css": "^7.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "spectacle": "^2.0.0"
   }
 }

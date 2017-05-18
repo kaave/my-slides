@@ -60,6 +60,22 @@ module.exports = Object.assign({}, config.webpack, {
         use: 'babel-loader'
       },
       {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                minimize: true
+              }
+            },
+            'postcss-loader'
+          ]
+        })
+      },
+      {
         test: /\.s[ac]ss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',

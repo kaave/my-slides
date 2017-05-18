@@ -69,6 +69,24 @@ module.exports = {
       }
     },
     {
+      test: /\.png$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          mimetype: 'image/png'
+        }
+      }
+    },
+    {
+      test: /\.jpg$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          mimetype: 'image/jpg'
+        }
+      }
+    },
+    {
       test: /\.ejs$/,
       use: 'ejs-compiled-loader'
     }
