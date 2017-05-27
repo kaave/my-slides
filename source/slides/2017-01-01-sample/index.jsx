@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Appear, BlockQuote, Cite, CodePane, ComponentPlayground, Deck, Fill, Heading, Image, Layout, Link, List, ListItem, Markdown, MarkdownSlides, Quote, Slide, SlideSet, Table, TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Text } from 'spectacle';
+import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 import preloader from 'spectacle/lib/utils/preloader';
 import GoogleFonts from 'google-fonts';
@@ -11,7 +12,8 @@ import 'spectacle/lib/themes/default/index.css';
 GoogleFonts.add({
   'Open Sans Condensed': ['300', '700'],
   'Lobster Two': ['400', '700'],
-  Roboto: ['400', '700']
+  Roboto: ['400', '700'],
+  Ubuntu: ['400', '700']
 });
 const theme = createTheme({
   primary: '#d23523',   // framelunch theme
@@ -19,7 +21,7 @@ const theme = createTheme({
   tertiary: '#23d277',
   quartenary: '#2e2e2e'
 }, {
-  primary: 'Open Sans Condensed',
+  primary: 'Ubuntu',
   secondary: 'Lobster Two',
   tertiary: 'Roboto',
   quartenary: 'monospace'
@@ -62,6 +64,20 @@ function Presentation () {
           Wait what?
         </Heading>
       </Slide>
+      <CodeSlide
+        transition={[]}
+        lang="js"
+        code={require('raw-loader!./assets/code.js.code')}
+        ranges={[
+          { loc: [0, 1], title: 'The Beginning' },
+          { loc: [1, 2] },
+          { loc: [1, 2], note: 'Heres a note!' },
+          { loc: [2, 3] },
+          { loc: [4, 7], image: images.city.replace('/', '') },
+          { loc: [8, 10] }
+          // ...
+        ]}
+      />
       <Slide>
         <ComponentPlayground
           theme="dark"

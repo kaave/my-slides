@@ -1,0 +1,19 @@
+export async function getRegister ({ filePath }) {
+  const register = await navigator.serviceWorker.register(filePath);
+  return register;
+}
+
+export async function getSubscriptionOrNull ({ register }) {
+  const subscription = await register.pushManager.getSubscription();
+  console.log(subscription ? 'subscribed.' : 'NOT subscribed.');
+  return subscription;
+}
+
+export async function subscribe ({ register, publicKey }) {
+  const applicationServerKey = urlBase64ToUint8Array({ base64String: publicKey });
+  const subscription = await register.pushManager.subscribe({
+    userVisibleOnly: true,  // magic for Google Chrome
+    applicationServerKey
+  });
+  return subscription;
+}
