@@ -87,6 +87,10 @@ module.exports = {
       }
     },
     {
+      test: /\.code$/,
+      use: 'raw-loader'
+    },
+    {
       test: /\.ejs$/,
       use: 'ejs-compiled-loader'
     }
