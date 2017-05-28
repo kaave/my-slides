@@ -1,0 +1,5 @@
+const awesomeButton = document.querySelector('button');
+
+awesomeButton.addEventListener('click', event => {
+  window.alert(`button clicked: [${event.target.value}]`);
+});

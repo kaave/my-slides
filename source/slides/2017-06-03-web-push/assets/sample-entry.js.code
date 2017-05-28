@@ -1,0 +1,44 @@
+const publicKey = 'BIxbTMDKpqsEIv4GURJFIvacn0ojx6hVm66_bpYyvBpqlrW16hNboNE6yFcKNGsa-3ept34Jy-BNB6ftjwSpJVE';
+
+window.addEventListener('DOMContentLoaded', async () => {
+  await initPushWorker();
+});
+
+async function initPushWorker () {
+  const register = await getRegister({ filePath: '/sw.js' });
+  const subscriptionOrNull = await getSubscriptionOrNull({ register });
+  const subscription = subscriptionOrNull || await subscribe({ register, publicKey });
+}
+
+export async function getRegister ({ filePath }) {
+  const register = await navigator.serviceWorker.register(filePath);
+  return register;
+}
+
+export async function getSubscriptionOrNull ({ register }) {
+  const subscription = await register.pushManager.getSubscription();
+  console.log(subscription ? 'subscribed.' : 'NOT subscribed.');
+  return subscription;
+}
+
+export async function subscribe ({ register, publicKey }) {
+  const applicationServerKey = urlBase64ToUint8Array({ base64String: publicKey });
+  const subscription = await register.pushManager.subscribe({
+    userVisibleOnly: true,  // magic for Google Chrome
+    applicationServerKey
+  });
+  return subscription;
+}
+
+function urlBase64ToUint8Array ({ base64String }) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0, l = rawData.length; i < l; ++i) { // eslint-disable-line no-plusplus
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+
+  return outputArray;
+}

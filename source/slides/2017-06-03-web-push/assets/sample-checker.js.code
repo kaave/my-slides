@@ -1,0 +1,14 @@
+// ServiceWorkerが使えるかどうかチェック
+function canUseServiceWorker () {
+  return navigator.serviceWorker != null;
+}
+
+// Push通知が使えるかどうかチェック
+function canUsePushNotification () {
+  return window.pushManager != null;
+}
+
+// 「通知の表示」が許可されてるかチェック
+function isNotificationDenied () {
+  return Notification.permission === 'denied';
+}

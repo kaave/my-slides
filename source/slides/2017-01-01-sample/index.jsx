@@ -9,6 +9,12 @@ import GoogleFonts from 'google-fonts';
 import 'normalize.css';
 import 'spectacle/lib/themes/default/index.css';
 
+import code from './assets/code.js.code';
+import city from './assets/city.jpg';
+import kat from './assets/kat.png';
+import logo from './assets/formidable-logo.svg';
+import markdown from './assets/markdown.png';
+
 GoogleFonts.add({
   'Open Sans Condensed': ['300', '700'],
   'Lobster Two': ['400', '700'],
@@ -17,7 +23,7 @@ GoogleFonts.add({
 });
 const theme = createTheme({
   primary: '#d23523',   // framelunch theme
-  secondary: '#fff',
+  secondary: '#f0f',
   tertiary: '#23d277',
   quartenary: '#2e2e2e'
 }, {
@@ -27,12 +33,7 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-const images = {
-  city: require('./assets/city.jpg'),
-  kat: require('./assets/kat.png'),
-  logo: require('./assets/formidable-logo.svg'),
-  markdown: require('./assets/markdown.png')
-};
+const images = { city, kat, logo, markdown };
 preloader(images);
 
 function Presentation () {
@@ -67,7 +68,7 @@ function Presentation () {
       <CodeSlide
         transition={[]}
         lang="js"
-        code={require('raw-loader!./assets/code.js.code')}
+        code={code}
         ranges={[
           { loc: [0, 1], title: 'The Beginning' },
           { loc: [1, 2] },

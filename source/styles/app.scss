@@ -1,24 +1,23 @@
 @import '../../node_modules/sanitize.css/sanitize.css';
-$fa-font-path: '../../node_modules/font-awesome/fonts';
-@import '../../node_modules/font-awesome/scss/font-awesome';
-@import './modules/variables';
-
-html {
-    font-size: 62.5%;
-    background-color: $main-color;
-}
-
-body {
-    font: {
-        family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI','Noto Sans Japanese','ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
-        size: 1.4em;
-    }
-    color: $text-color;
-}
-
-*,
-::before,
-::after {
-    box-sizing: border-box;
-}
-
+//$fa-font-path: '../../node_modules/font-awesome/fonts';
+//@import '../../node_modules/font-awesome/scss/font-awesome';
+//@import './modules/variables';
+//
+//html {
+//    font-size: 62.5%;
+//    background-color: $main-color;
+//}
+//
+//body {
+//    font: {
+//        family:-apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI','Noto Sans Japanese','ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+//        size: 1.4em;
+//    }
+//    color: $text-color;
+//}
+//
+//*,
+//::before,
+//::after {
+//    box-sizing: border-box;
+//}
