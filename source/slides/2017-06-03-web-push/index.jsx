@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { Appear, BlockQuote, Cite, CodePane, ComponentPlayground, Deck, Fill, Heading, Image, Layout, Link, List, ListItem, Markdown, MarkdownSlides, Quote, Slide, SlideSet, Table, TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Text } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
-//import preloader from 'spectacle/lib/utils/preloader';
+import preloader from 'spectacle/lib/utils/preloader';
 import GoogleFonts from 'google-fonts';
 
 import 'normalize.css';
@@ -18,6 +18,20 @@ import sampleChecker from './assets/sample-checker.js.code';
 
 import imageDebuggerApplication from './assets/debugger-application.png';
 import imageDebuggerSources from './assets/debugger-sources.png';
+import imageCanIUseSW from './assets/caniuse-sw.png';
+import imageCanIUsePush from './assets/caniuse-push.png';
+import imageSW1 from './assets/sw-image-1.png';
+import imageSW2 from './assets/sw-image-2.png';
+import imagePush1 from './assets/push-image-1.png';
+import imagePush2 from './assets/push-image-2.png';
+
+import bgChampion from './assets/bg/champion.jpg';
+import bgField from './assets/bg/field.jpg';
+import bgHorses from './assets/bg/horses.jpg';
+import bgSea from './assets/bg/sea.jpg';
+import bgSea2 from './assets/bg/sea2.jpg';
+import bgSeaGrape from './assets/bg/sea-grape.jpg';
+import bgSunset from './assets/bg/sunset.jpg';
 
 // 資料 https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/?hl=ja
 
@@ -47,22 +61,38 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-//const images = { city, kat, logo, markdown };
-//preloader(images);
+const images = {
+  imageDebuggerApplication,
+  imageDebuggerSources,
+  imageCanIUseSW,
+  imageCanIUsePush,
+  bgChampion,
+  bgField,
+  bgHorses,
+  bgSea,
+  bgSea2,
+  bgSeaGrape,
+  bgSunset,
+  imageSW1,
+  imageSW2,
+  imagePush1,
+  imagePush2
+};
+preloader(images);
 
 const birthDay = new Date(Date.now() - new Date(1982, 9 - 1, 24, 6, 0, 0).getTime());
 
 function Presentation () {
   return (
     <Deck transition={['zoom', 'slide']} transitionDuration={500} theme={theme}>
-      <Slide transition={['zoom']} bgColor="primary">
-        <Heading size={1} fit lineHeight={1} textColor={colors.black}>
+      <Slide transition={['zoom']} bgImage={images.bgField} bgDarken={0.1}>
+        <Heading size={1} fit lineHeight={1} textColor={colors.white}>
           Push notificationで
         </Heading>
-        <Heading size={1} fit lineHeight={1} textColor={colors.black}>
+        <Heading size={1} fit lineHeight={1} textColor={colors.white}>
           ServiceWorker入門
         </Heading>
-        <Text textSize="1.5em" margin="20px 0px 0px" textColor={colors.black} bold>
+        <Text textSize="1.5em" margin="20px 0px 0px" textColor={colors.white} bold>
           2017/06/03 (土) Nagoya.js #3
         </Text>
       </Slide>
@@ -72,15 +102,25 @@ function Presentation () {
         </Heading>
         <List>
           <Appear><ListItem>ServiceWorkerテスト駆動開発</ListItem></Appear>
-          <Appear><ListItem>5分でPWAを構築</ListItem></Appear>
-          <Appear><ListItem>AMPとPWAの連携でハッピー</ListItem></Appear>
+          <Appear><ListItem>なんかすごい技で5分でPWAを構築</ListItem></Appear>
+          <Appear><ListItem>AMPとPWAの連携でコンバージョン率改善</ListItem></Appear>
         </List>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.white}>
-        <Heading size={3} caps>
+      <Slide transition={['spin']} bgImage={images.bgSea} bgDarken={0.2}>
+        <Heading size={1} fit caps lineHeight={1} textColor={colors.white}>
+          今日の目的 🌈
+        </Heading>
+        <Appear>
+          <Text margin="20px 0px 0px" textColor={colors.white} bold>
+            皆さんになんとなーくSWいじれそうだなーって思ってもらう。
+          </Text>
+        </Appear>
+      </Slide>
+      <Slide transition={['slide']} bgImage={images.bgSea2} bgDarken={0.2}>
+        <Heading size={3} caps textColor={colors.white}>
           Agenda
         </Heading>
-        <List>
+        <List textColor={colors.white}>
           <ListItem>自己紹介</ListItem>
           <ListItem>ServiceWorker概要</ListItem>
           <ListItem>Push notification概要とサンプル披露</ListItem>
@@ -90,26 +130,29 @@ function Presentation () {
           <ListItem>おまけ</ListItem>
         </List>
       </Slide>
-      <Slide transition={['slide', 'fade']} bgColor={colors.blue}>
-        <Heading margin="0 0 50px" size={2}>
+      <Slide transition={['slide', 'fade']} bgImage={images.bgSeaGrape} bgDarken={0.2}>
+        <Heading margin="0 0 50px" size={2} textColor={colors.white}>
           わたし 😎
         </Heading>
-        <Heading size={4} textColor={colors.black}>
+        <Heading size={4} textColor={colors.white}>
           安部 亨佑 {birthDay.getYear() - 70}{format(birthDay, '歳Mヶ月D日')}
         </Heading>
-        <Text margin="30px 0px 0px" textColor={colors.black}>
+        <Text margin="30px 0px 0px" textColor={colors.white}>
           🏢 株式会社FRAME LUNCH / WEB ENGINEER<br />
         </Text>
-        <Text margin="20px 0px 0px" textColor={colors.black}>
-          🖌 IntelliJ IDEA : Vim(iTerm) : VSCode = 7 : 2 : 1くらい
+        <Text margin="40px 0px 0px" textColor={colors.white}>
+          🖌 IntelliJ IDEA : Vim : VSCode = 7 : 2 : 1くらい
         </Text>
-        <Text margin="50px 0px 0px" textColor={colors.black}>
-          💕 音楽鑑賞 サッカー観戦 テレビゲームetc
+        <Text margin="40px 0px 0px" textColor={colors.white}>
+          ⌨ Dell → Epson → HHKB Pro JP → ErgoDox
+        </Text>
+        <Text margin="40px 0px 0px" textColor={colors.white}>
+          💕 音楽鑑賞 (電子音楽中心に雑食)
         </Text>
       </Slide>
       <Slide transition={['slide', 'fade']} bgColor={colors.fl}>
         <Heading margin="0 0 50px" size={1} caps>
-          宣伝
+          業務の宣伝
         </Heading>
       </Slide>
       <Slide transition={['slide', 'fade']} bgColor={colors.white}>
@@ -140,10 +183,30 @@ function Presentation () {
           <Appear><ListItem>プッシュとかできる</ListItem></Appear>
         </List>
       </Slide>
-      <Slide transition={['slide', 'fade']} bgColor={colors.white}>
-        <Heading size={1} fit textColor={colors.black}>
-          図
+      <Slide transition={['slide', 'fade']}>
+        <Heading size={2}>
+          よくあるやりとり
         </Heading>
+        <Image src={images.imageSW1} />
+      </Slide>
+      <Slide transition={['slide']} bgColor={colors.white}>
+        <Heading size={2} textColor={colors.black}>
+          with SW
+        </Heading>
+        <Image src={images.imageSW2} />
+      </Slide>
+      <Slide transition={['fade']} bgColor="#f38">
+        <Heading size={1} fit textColor={colors.white}>
+          なおhttps必須
+        </Heading>
+        <Appear><Text textColor={colors.white}>ただしlocalhostならセーフ</Text></Appear>
+      </Slide>
+      <Slide transition={['slide']} bgColor={colors.white}>
+        <Heading size={2} textColor={colors.black}>
+          対応状況
+        </Heading>
+        <Appear><Text>ChromeとFirefox、これからEdgeも</Text></Appear>
+        <Image src={images.imageCanIUseSW} margin="40px 0 0" />
       </Slide>
       <Slide transition={['slide', 'fade']} bgColor={colors.white}>
         <Heading size={1} fit textColor={colors.black}>
@@ -170,12 +233,32 @@ function Presentation () {
         <List>
           <Appear><ListItem>サーバから任意のタイミングでプッシュできる</ListItem></Appear>
           <Appear><ListItem>宛先がそのサイト開いてなくてもおかまいなし</ListItem></Appear>
-          <Appear><ListItem>みんなハッピー?</ListItem></Appear>
+          <Appear><ListItem>みんなハッピー?(スパムとか嫌だね)</ListItem></Appear>
         </List>
       </Slide>
       <Slide transition={['slide']} bgColor={colors.white}>
+        <Heading size={2} textColor={colors.black}>
+          対応状況
+        </Heading>
+        <Appear><Text>SWとほぼおんなじ</Text></Appear>
+        <Image src={images.imageCanIUsePush} margin="40px 0 0" />
+      </Slide>
+      <Slide transition={['slide', 'fade']}>
+        <Heading size={2}>
+          みんなのイメージ
+        </Heading>
+        <Image src={images.imagePush1} />
+      </Slide>
+      <Slide transition={['slide']} bgColor={colors.white}>
+        <Heading size={2} textColor={colors.black}>
+          現実
+        </Heading>
+        <Appear><Text>必ずベンダーのサーバが入るんだな</Text></Appear>
+        <Image src={images.imagePush2} />
+      </Slide>
+      <Slide transition={['slide']} bgColor={colors.white}>
         <Heading size={1} fit textColor={colors.black}>
-          サンプル
+          とりあえずサンプル
         </Heading>
         <Heading size={2} fit>
           <Link href="https://github.com/kaave/webpush-sample" target="_blank" textColor={colors.green}>
@@ -320,19 +403,31 @@ function Presentation () {
         <Heading size={2} fit textColor={colors.white}>
           デバッグはいつも通りChrome開発者ツール
         </Heading>
-        <Image src={imageDebuggerApplication} margin="40px 0 0" />
+        <Image src={images.imageDebuggerApplication} margin="40px 0 0" />
       </Slide>
       <Slide transition={'slide'} bgColor="#666">
         <Heading size={2} fit textColor={colors.white}>
           デバッグはいつも通りChrome開発者ツール
         </Heading>
-        <Image src={imageDebuggerSources} margin="40px 0 0" />
+        <Image src={images.imageDebuggerSources} margin="40px 0 0" />
       </Slide>
-      <Slide transition={['spin']} bgColor={colors.white}>
-        <Heading size={1} fit textColor={colors.black}>
+      <Slide transition={['fade']} bgImage={images.bgChampion} bgDarken={0.2}>
+        <Heading size={1} textColor={colors.white}>
+          本日のまとめ
+        </Heading>
+        <List>
+          <Appear><ListItem textColor={colors.white}>SWはChromeとFirefoxとEdge(これから)で使える</ListItem></Appear>
+          <Appear><ListItem textColor={colors.white}>SWはhttpsが必須</ListItem></Appear>
+          <Appear><ListItem textColor={colors.white}>Pushするくらいなら楽勝</ListItem></Appear>
+          <Appear><ListItem textColor={colors.white}>Pushするときに鍵を忘れない</ListItem></Appear>
+          <Appear><ListItem textColor={colors.white}>SWを登録するのが面倒くさいけど我慢</ListItem></Appear>
+        </List>
+      </Slide>
+      <Slide transition={['spin']} bgImage={images.bgHorses} bgDarken={0.1}>
+        <Heading size={1} fit textColor={colors.white}>
           おまけ
         </Heading>
-        <Heading size={2} fit textColor={colors.black}>
+        <Heading size={2} fit textColor={colors.white}>
           しょっぱい知見やぐぐって発見したものを適当に羅列します
         </Heading>
       </Slide>
@@ -364,6 +459,7 @@ function Presentation () {
           margin="20px 0 0"
           href="https://github.com/oliviertassinari/serviceworker-webpack-plugin"
           target="_blank"
+          textColor={colors.white}
         >
           https://github.com/oliviertassinari/serviceworker-webpack-plugin
         </Link>
@@ -373,25 +469,46 @@ function Presentation () {
         <Heading size={2} fit textColor={colors.white}>
           offline-plugin
         </Heading>
-        <Link fit margin="20px 0 0" href="https://github.com/NekR/offline-plugin" target="_blank">
+        <Link
+          fit
+          margin="20px 0 0"
+          href="https://github.com/NekR/offline-plugin"
+          target="_blank"
+          textColor={colors.white}
+        >
           https://github.com/NekR/offline-plugin
         </Link>
         <Appear><Text margin="50px 0 0" textColor={colors.white}>
           ServiceWorkerとCacheAPI使って<br />オフラインで諸々できちゃう
         </Text></Appear>
       </Slide>
-      <Slide transition={'slide'} bgColor="#666">
+      <Slide transition={['slide', 'fade']} bgColor="#666">
+        <Heading size={2} fit textColor={colors.white}>
+          こんなサイトがSW使ってました(2017年6月)
+        </Heading>
+        <Appear>
+          <List textColor={colors.white}>
+            <ListItem>Google</ListItem>
+            <ListItem>YouTube</ListItem>
+            <ListItem>Twitter</ListItem>
+            <ListItem>Guardian (英国の新聞社)</ListItem>
+            <ListItem>FRESH! (AbemaTVは使ってなさ気)</ListItem>
+          </List>
+        </Appear>
+      </Slide>
+      <Slide transition={'fade'} bgImage={images.bgSunset} bgDarken={0.1}>
         <Heading size={2} textColor={colors.white}>
           Thank you !! 🎉
         </Heading>
         <Heading margin="20px 0 0" size={4} textColor={colors.white}>
-          参考資料
+          参考資料・利用素材
         </Heading>
         <List>
           <ListItem>
             <Link
               href="https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/?hl=ja"
               target="_blank"
+              textColor={colors.white}
             >
               ウェブアプリへのプッシュ通知の追加
             </Link>
@@ -400,6 +517,7 @@ function Presentation () {
             <Link
               href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API/Using_Service_Workers"
               target="_blank"
+              textColor={colors.white}
             >
               Service Workerの利用について - Web API インターフェイス | MDN
             </Link>
@@ -408,8 +526,28 @@ function Presentation () {
             <Link
               href="https://caniuse.com/"
               target="_blank"
+              textColor={colors.white}
             >
               Can I use... Support tables for HTML5, CSS3, etc
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              href="http://stack.formidable.com/spectacle/#/?_k=zd4n33"
+              target="_blank"
+              textColor={colors.white}
+            >
+              SPECTACLE
+            </Link>
+          </ListItem>
+
+          <ListItem>
+            <Link
+              href="https://github.com/future-architect/icons"
+              target="_blank"
+              textColor={colors.white}
+            >
+              future-architect/icons
             </Link>
           </ListItem>
         </List>
