@@ -256,6 +256,21 @@ function Presentation () {
         <Appear><Text>必ずベンダーのサーバが入るんだな</Text></Appear>
         <Image src={images.imagePush2} />
       </Slide>
+      <Slide transition={'slide'} bgColor="#4b2">
+        <Heading size={2} fit textColor={colors.white}>
+          公開鍵と秘密鍵が必要
+        </Heading>
+        <Text margin="50px 0 0" textColor={colors.white}>
+          このへんでもらってきましょう<br />
+          <Link
+            href="https://web-push-codelab.appspot.com/"
+            target="_blank"
+            textColor={colors.white}
+          >
+            https://web-push-codelab.appspot.com/
+          </Link>
+        </Text>
+      </Slide>
       <Slide transition={['slide']} bgColor={colors.white}>
         <Heading size={1} fit textColor={colors.black}>
           とりあえずサンプル
@@ -430,16 +445,6 @@ function Presentation () {
         <Heading size={2} fit textColor={colors.white}>
           しょっぱい知見やぐぐって発見したものを適当に羅列します
         </Heading>
-      </Slide>
-      <Slide transition={'slide'} bgColor="#666">
-        <Heading size={2} fit textColor={colors.white}>
-          macOSのChromeでデバッグする場合<br />
-          Chromeをフルスクリーンにしない
-        </Heading>
-        <Appear><Text margin="50px 0 0" textColor={colors.white}>
-          なぜかPush通知が表示されない。<br />
-          そしてあとでまとめて表示されて地獄
-        </Text></Appear>
       </Slide>
       <Slide transition={'slide'} bgColor="#666">
         <Heading size={2} textColor={colors.white}>
