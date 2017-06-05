@@ -6,7 +6,7 @@
     "scripts": {
         "postinstall": "flow-typed install && rimraf flow-typed/npm/browser-env_*",
         "start": "run-s build:development",
-        "server": "http-server ./build -p 23000 -o --cors",
+        "server": "http-server ./docs -p 23000 -o --cors",
         "prebuild": "run-p lint",
         "build": "run-s clean build:production",
         "build:development": "NODE_ENV=development webpack-dev-server",
