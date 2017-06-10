@@ -1,9 +1,9 @@
 const
   path = require('path'),
-  glob = require('glob'),
+  globby = require('globby'),
   webpack = require('webpack');
 
-const slides = glob.sync('./source/slides/*')
+const slides = globby.sync(['./source/slides/*', '!./source/slides/common'])
   .map(slidePath => slidePath.replace(/\.\/source\/slides\//, ''));
 const entry = {
   app: [
@@ -28,7 +28,7 @@ module.exports = {
   },
   views: [
     'index',
-    ...glob.sync('./source/views/*.ejs')
+    ...globby.sync('./source/views/*.ejs')
       .map(filePath => filePath.replace(/\.\/source\//, ''))
       .map(filePath => filePath.replace(/\.ejs$/, ''))
   ],

@@ -1,0 +1,28 @@
+const { browserslist } = require('../package.json');
+// ["ie 11", "last 2 versions", "not ie < 11"] みたいな感じの配列
+
+const babelConfig = {
+  presets: [
+    ['env', {
+      targets: { browsers: browserslist },  // targets.browsersにそのまんま放り込むだけ
+      debug: true
+    }]
+  ],
+  babelrc: false    // 超重要 .babelrcが存在しなくても必須
+};
+
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: babelConfig
+        }
+      }
+    ]
+  }
+};
