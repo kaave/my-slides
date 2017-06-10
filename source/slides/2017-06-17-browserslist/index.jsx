@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { format } from 'date-fns';
 import { Appear, BlockQuote, Cite, CodePane, ComponentPlayground, Deck, Fill, Heading, Image, Layout, Link, List, ListItem, Markdown, MarkdownSlides, Quote, Slide, SlideSet, Table, TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Text } from 'spectacle';
+import { Tweet } from 'react-twitter-widgets';
 import createTheme from 'spectacle/lib/themes/default';
 import preloader from 'spectacle/lib/utils/preloader';
 import GoogleFonts from 'google-fonts';
@@ -17,6 +18,7 @@ import bgMyDesk from './assets/bg/my-desk.jpg';
 import bgCurry from './assets/bg/curry.jpg';
 import bgSea from './assets/bg/sea.jpg';
 import bgSunset from './assets/bg/sunset.jpg';
+import bgEtc from './assets/bg/etc.jpg';
 import imageGithubPR from './assets/github-pr.png';
 
 GoogleFonts.add({
@@ -46,7 +48,7 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-const images = { bgMyDesk, bgCurry, bgSea, bgSunset, imageGithubPR };
+const images = { bgMyDesk, bgCurry, bgSea, bgSunset, bgEtc, imageGithubPR };
 preloader(images);
 const birthDay = new Date(Date.now() - new Date(1982, 9 - 1, 24, 6, 0, 0).getTime());
 
@@ -90,8 +92,18 @@ function Presentation () {
           💕 音楽鑑賞 (電子音楽中心に雑食) / 自炊
         </Text>
       </Slide>
-      <Slide transition={['fade']} bgImage={images.bgCurry} bgDarken={0.5}>
-        スタジオまじよろしく。
+      <Slide transition={['fade']} bgImage={images.bgEtc} bgDarken={0.5}>
+        <Text fit textColor={colors.white}>
+          (宣伝)スタジオはこんな感じです。よかったら。
+        </Text>
+        <Layout>
+          <Fill>
+            <Tweet tweetId="849416758222106624" />
+          </Fill>
+          <Fill>
+            <Tweet tweetId="872616520681050112" />
+          </Fill>
+        </Layout>
       </Slide>
       <Slide transition={['fade']} bgImage={images.bgCurry} bgDarken={0.5}>
         <Heading size={3} textColor={colors.white}>
@@ -119,9 +131,9 @@ function Presentation () {
           </Cite>
         </BlockQuote>
         <Appear>
-          <Heading size={2} fit margin="20px auto" textColor={colors.white}>
-            (異なるフロントツール間で、サポートするブラウザのリストを共有するライブラリ)
-          </Heading>
+          <Text margin="20px auto" textColor={colors.white}>
+            (異なるフロントツール間で<br />サポートするブラウザのリストを<br />共有するライブラリ)
+          </Text>
         </Appear>
       </Slide>
       <Slide transition={['fade']} bgColor={colors.white}>
@@ -237,7 +249,7 @@ function Presentation () {
       </Slide>
       <Slide transition={['fade']} bgcolor={colors.black}>
         <Heading size={1} textcolor={colors.red}>
-          おやくそく
+          キモとなる仕様
         </Heading>
         <List>
           <Appear><ListItem>データはおなじみCan I Use?から取得</ListItem></Appear>
