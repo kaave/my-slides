@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { format } from 'date-fns';
 import { Appear, BlockQuote, Cite, CodePane, ComponentPlayground, Deck, Fill, Heading, Image, Layout, Link, List, ListItem, Markdown, MarkdownSlides, Quote, Slide, SlideSet, Table, TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Text } from 'spectacle';
 import { Tweet } from 'react-twitter-widgets';
+import InstagramEmbed from 'react-instagram-embed';
 import createTheme from 'spectacle/lib/themes/default';
 import preloader from 'spectacle/lib/utils/preloader';
 import GoogleFonts from 'google-fonts';
@@ -98,10 +99,16 @@ function Presentation () {
         </Text>
         <Layout>
           <Fill>
-            <Tweet tweetId="849416758222106624" />
+            <InstagramEmbed url="https://www.instagram.com/p/BTbR7QCFwxk/" maxWidth={160} hideCaption />
+            <InstagramEmbed url="https://www.instagram.com/p/BR-bs3hFuiF/" maxWidth={160} hideCaption />
           </Fill>
           <Fill>
-            <Tweet tweetId="872616520681050112" />
+            <InstagramEmbed url="https://www.instagram.com/p/BTaaKCclm4I/" maxWidth={160} hideCaption />
+            <InstagramEmbed url="https://www.instagram.com/p/BSzh5zoFBcr/" maxWidth={160} hideCaption />
+          </Fill>
+          <Fill>
+            <InstagramEmbed url="https://www.instagram.com/p/BTvSAX8FnN_/" maxWidth={160} hideCaption />
+            <InstagramEmbed url="https://www.instagram.com/p/BRKMwAiFiQe/" maxWidth={160} hideCaption />
           </Fill>
         </Layout>
       </Slide>
@@ -471,9 +478,9 @@ function Presentation () {
             { title: 'browserl.ist', href: 'http://browserl.ist/' },
             { title: 'google/web-starter-kit', href: 'https://github.com/google/web-starter-kit' },
             { title: 'SPECTACLE', href: 'http://stack.formidable.com/spectacle/#/?_k=zd4n33' }
-          ].map(({ title, href }) => (
+          ].map(({ title, href }, i) => (
             <ListItem>
-              <Link href={href} target="_blank" textColor={colors.white}>{title}</Link>
+              <Link key={i.toString()} href={href} target="_blank" textColor={colors.white}>{title}</Link>
             </ListItem>
           ))}
         </List>

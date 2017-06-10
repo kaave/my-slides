@@ -2545,7 +2545,7 @@ debug@2.6.3, debug@^2.0.0, debug@^2.1.1, debug@^2.2.0, debug@^2.6.0:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.4:
+debug@2.6.4, debug@^2.1.3:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.4.tgz#7586a9b3c39741c0282ae33445c4e8ac74734fe0"
   dependencies:
@@ -4472,6 +4472,18 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
+jsonp-p@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/jsonp-p/-/jsonp-p-2.0.0.tgz#98de9a1ed70bd16afb33198a701c8729301238a3"
+  dependencies:
+    jsonp "^0.2.0"
+
+jsonp@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jsonp/-/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
+  dependencies:
+    debug "^2.1.3"
+
 jsonparse@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/jsonparse/-/jsonparse-0.0.5.tgz#330542ad3f0a654665b778f3eb2d9a9fa507ac64"
@@ -6077,7 +6089,7 @@ qs@~6.3.0:
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
-query-string@^4.1.0:
+query-string@^4.1.0, query-string@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.2.tgz#ec0fd765f58a50031a3968c2431386f8947a5cdd"
   dependencies:
@@ -6197,6 +6209,13 @@ react-in-markdown@^0.0.2:
   resolved "https://registry.yarnpkg.com/react-in-markdown/-/react-in-markdown-0.0.2.tgz#053c669ec23f355aa83e5a3a3ab1e2eb098012d2"
   dependencies:
     react "^15.3.2"
+
+react-instagram-embed@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-instagram-embed/-/react-instagram-embed-1.2.0.tgz#1de782dd70ec907774b3703d92ba001c08eff346"
+  dependencies:
+    jsonp-p "^2.0.0"
+    query-string "^4.3.2"
 
 react-redux@^4.0.0:
   version "4.4.8"
