@@ -20,6 +20,7 @@ import bgCurry from './assets/bg/curry.jpg';
 import bgSea from './assets/bg/sea.jpg';
 import bgSunset from './assets/bg/sunset.jpg';
 import bgEtc from './assets/bg/etc.jpg';
+import bgUyghur from './assets/bg/uyghur.jpg';
 import imageGithubPR from './assets/github-pr.png';
 
 GoogleFonts.add({
@@ -32,9 +33,12 @@ GoogleFonts.add({
 const colors = {
   fl: '#d23523',
   bianchi: '#a7e7d8',
-  red: '#e7a7d8',
+  red: '#f44336',
+  pink: '#e7a7d8',
   blue: '#a7d8e7',
+  green: '#4caf50',
   yellow: '#ffeb3b',
+  orange: '#ff5722',
   white: '#f0f0f0',
   black: '#222'
 };
@@ -49,7 +53,7 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-const images = { bgMyDesk, bgCurry, bgSea, bgSunset, bgEtc, imageGithubPR };
+const images = { bgMyDesk, bgCurry, bgSea, bgSunset, bgEtc, bgUyghur, imageGithubPR };
 preloader(images);
 const birthDay = new Date(Date.now() - new Date(1982, 9 - 1, 24, 6, 0, 0).getTime());
 
@@ -67,7 +71,7 @@ function Presentation () {
           2017/06/17 (土) Frontend Nagoya #1
         </Text>
       </Slide>
-      <Slide transition={['slide', 'fade']} bgImage={images.bgMyDesk} bgDarken={0.5}>
+      <Slide transition={['slide']} bgImage={images.bgMyDesk} bgDarken={0.5}>
         <Heading margin="0 0 50px" size={2} textColor={colors.white}>
           わたし 😎
         </Heading>
@@ -93,7 +97,7 @@ function Presentation () {
           💕 音楽鑑賞 (電子音楽中心に雑食) / 自炊
         </Text>
       </Slide>
-      <Slide transition={['fade']} bgImage={images.bgEtc} bgDarken={0.5}>
+      <Slide transition={['slide']} bgImage={images.bgEtc} bgDarken={0.5}>
         <Text fit textColor={colors.white}>
           (宣伝)スタジオはこんな感じです。よかったら。
         </Text>
@@ -112,7 +116,7 @@ function Presentation () {
           </Fill>
         </Layout>
       </Slide>
-      <Slide transition={['fade']} bgImage={images.bgCurry} bgDarken={0.5}>
+      <Slide transition={['slide']} bgImage={images.bgCurry} bgDarken={0.5}>
         <Heading size={3} textColor={colors.white}>
           AGENDA
         </Heading>
@@ -123,8 +127,8 @@ function Presentation () {
           <ListItem>設定サンプル&ちょっとしたUtil</ListItem>
         </List>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} fit textColor={colors.red}>
+      <Slide transition={['slide', 'fade']} bgColor={colors.white}>
+        <Heading size={1} fit textColor={colors.black}>
           browserslistって何
         </Heading>
       </Slide>
@@ -143,7 +147,7 @@ function Presentation () {
           </Text>
         </Appear>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.white}>
+      <Slide transition={['slide', 'fade']} bgColor={colors.pink}>
         <Heading fit size={2} textColor={colors.black}>
           具体的にどういうやつ？
         </Heading>
@@ -174,105 +178,99 @@ function Presentation () {
         <Text textAlign="left" textSize="0.8em">(対応していないCSSを警告するstylelint Plugin)</Text>
         <Text bold textAlign="left" margin="10px 0 0">postcss-normalize</Text>
         <Text textAlign="left" textSize="0.8em">(指定ブラウザに応じてnormalize.cssをカスタムしてくれるPostCSS plugin)</Text>
-        <Appear>
-          <Text bold fit margin="10px 0 0">(html/ejs/pugあたりのツールがないッッッ)</Text>
-        </Appear>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} fit textColor={colors.red}>
+      <Slide transition={['slide', 'fade']} bgColor={colors.white}>
+        <Heading size={1} fit textColor={colors.black}>
           browserslistの書き方と注意点
         </Heading>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
-        <Heading fit size={2} margin="0 0 50px">
+      <Slide transition={['slide']} bgColor={colors.green} textColor={colors.white}>
+        <Heading fit size={2} margin="0 0 50px" textColor={colors.white}>
           こんな感じのクエリを<br />組み合わせて指定します
         </Heading>
+        <Link
+          href="https://github.com/ai/browserslist#queries"
+          target="_blank"
+          textColor={colors.white}
+          margin="0 0 15px"
+        >
+          https://github.com/ai/browserslist#queries
+        </Link>
         <Layout>
-          <Fill>
-            <Text bold textAlign="left" margin="10px 0 0">&gt; 5%</Text>
-            <Text textAlign="left" textSize="0.8em">(利用者率5%超)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">&gt;= 5% in JP</Text>
-            <Text textAlign="left" textSize="0.8em">(利用者率5%以上[in 日本])</Text>
-            <Text bold textAlign="left" margin="10px 0 0">last 2 versions</Text>
-            <Text textAlign="left" textSize="0.8em">(各ブラウザ直近2バージョン)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">last 2 chrome versions</Text>
-            <Text textAlign="left" textSize="0.8em">(Chrome直近2バージョン)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">ie 6-8</Text>
-            <Text textAlign="left" textSize="0.8em">(IE 6~8)</Text>
-          </Fill>
-          <Fill>
-            <Text bold textAlign="left" margin="10px 0 0">firefox &gt;= 20</Text>
-            <Text textAlign="left" textSize="0.8em">(FireFox v20以上)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">firefox &lt; 20</Text>
-            <Text textAlign="left" textSize="0.8em">(FireFox v20未満)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">firefox ESR</Text>
-            <Text textAlign="left" textSize="0.8em">(FireFox延長サポート版)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">ios 7</Text>
-            <Text textAlign="left" textSize="0.8em">(iOS7ピンポイント)</Text>
-            <Text bold textAlign="left" margin="10px 0 0">not ie &lt;= 8</Text>
-            <Text textAlign="left" textSize="0.8em">(IE8以下を除外する)</Text>
-          </Fill>
+          {[
+            [
+              { query: '> 5%', desc: '(利用者率5%超)' },
+              { query: '>= 5% in JP', desc: '(利用者率5%以上[in 日本])' },
+              { query: 'last 2 versions', desc: '(各ブラウザ直近2バージョン)' },
+              { query: 'last 2 chrome versions', desc: '(Chrome直近2バージョン)' },
+              { query: 'ie 6-8', desc: '(IE 6~8)' }
+            ],
+            [
+              { query: 'firefox >= 20', desc: '(FireFox v20以上)' },
+              { query: 'firefox < 20', desc: '(FireFox v20未満)' },
+              { query: 'firefox ESR', desc: '(FireFox延長サポート版)' },
+              { query: 'ios 7', desc: '(iOS7ピンポイント)' },
+              { query: 'not ie >= 8', desc: '(IE8以下を除外する)' }
+            ]
+          ].map(querys => (
+            <Fill>
+              {querys.map(({ query, desc }) => [
+                <Text bold textAlign="left" margin="10px 0 0" textColor={colors.white}>{query}</Text>,
+                <Text textAlign="left" textSize="0.8em" textColor={colors.white}>{desc}</Text>
+              ])}
+            </Fill>
+          ))}
         </Layout>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
-        <Heading fit size={2} margin="0 0 10px">
-          利用できるブラウザ一覧はこちらです<br />
-          (nodeがないね たしかにブラウザじゃないしね)
+      <Slide transition={['fade']} bgColor={colors.orange} textColor={colors.white}>
+        <Heading fit size={2} margin="0 0 10px" textColor={colors.white}>
+          指定できるブラウザ一覧はこちらになります<br />
+          クエリで使える短縮形などもあるので↓参照
         </Heading>
         <Link
           href="https://github.com/ai/browserslist#browsers"
           target="_blank"
-          textColor={colors.black}
+          textColor={colors.white}
           margin="0 0 15px"
         >
           https://github.com/ai/browserslist#browsers
         </Link>
         <Layout>
-          <Fill>
-            <Text bold textAlign="left" margin="10px 0 0">Chrome</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Edge</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Explorer</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Firefox</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Opera</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Safari</Text>
-          </Fill>
-          <Fill>
-            <Text bold textAlign="left" margin="10px 0 0">Android</Text>
-            <Text bold textAlign="left" margin="10px 0 0">ChromeAndroid</Text>
-            <Text bold textAlign="left" margin="10px 0 0">FirefoxAndroid</Text>
-            <Text bold textAlign="left" margin="10px 0 0">QQAndroid</Text>
-            <Text bold textAlign="left" margin="10px 0 0">UCAndroid</Text>
-            <Text bold textAlign="left" margin="10px 0 0">iOS</Text>
-          </Fill>
-          <Fill>
-            <Text bold textAlign="left" margin="10px 0 0">BlackBerry</Text>
-            <Text bold textAlign="left" margin="10px 0 0">ExplorerMobile</Text>
-            <Text bold textAlign="left" margin="10px 0 0">OperaMini</Text>
-            <Text bold textAlign="left" margin="10px 0 0">OperaMobile</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Samsung</Text>
-            <Text bold textAlign="left" margin="10px 0 0">Electron</Text>
-          </Fill>
+          {[
+            ['Chrome', 'Edge', 'Explorer', 'Firefox', 'Opera', 'Safari'],
+            ['Android', 'ChromeAndroid', 'FirefoxAndroid', 'QQAndroid', 'UCAndroid', 'iOS'],
+            ['BlackBerry', 'ExplorerMobile', 'OperaMini', 'OperaMobile', 'Samsung', 'Electron']
+          ].map(browsers => (
+            <Fill>
+              {browsers.map((query, i) => (
+                <Text key={i.toString()} bold textAlign="left" margin="10px 0 0" textColor={colors.white}>{query}</Text>
+              ))}
+            </Fill>
+          ))}
         </Layout>
+        <Text textColor={colors.white} fontSize="0.8em" margin="20px 0 0">(nodeがない たしかにブラウザじゃないしなー)</Text>
       </Slide>
-      <Slide transition={['fade']} bgcolor={colors.black}>
-        <Heading size={1} textcolor={colors.red}>
-          キモとなる仕様
+      <Slide transition={['fade']}>
+        <Heading size={1} textColor={colors.black}>
+          キモはこのへん
         </Heading>
-        <List>
-          <Appear><ListItem>データはおなじみCan I Use?から取得</ListItem></Appear>
-          <Appear><ListItem>複数書くと[OR]検索</ListItem></Appear>
-          <Appear><ListItem>ただしnotだけは例外で[NOT]検索</ListItem></Appear>
-          <Appear><ListItem>デフォルトは&gt; 1%, last 2 versions, firefox ESR</ListItem></Appear>
-        </List>
+        <Appear>
+          <List>
+            <ListItem>データはおなじみCan I Use?から取得</ListItem>
+            <ListItem>複数書くと[OR]検索</ListItem>
+            <ListItem>ただしnotだけは例外で[NOT]検索</ListItem>
+            <ListItem>デフォルトは&gt; 1%, last 2 versions, firefox ESR</ListItem>
+          </List>
+        </Appear>
       </Slide>
-      <Slide transition={['fade']} bgcolor={colors.black}>
-        <Heading size={1} fit textcolor={colors.red}>
+      <Slide transition={['fade']} bgColor={colors.black} textColor={colors.red}>
+        <Heading size={1} fit textColor={colors.red}>
           ところでなんですが
         </Heading>
-        <Heading size={1} fit textcolor={colors.red}>
+        <Heading size={1} fit textColor={colors.red}>
           last 2 versions の
         </Heading>
-        <Heading size={1} fit textcolor={colors.red}>
+        <Heading size={1} fit textColor={colors.red}>
           versionsって何のバージョン？
         </Heading>
         <Appear>
@@ -284,42 +282,44 @@ function Presentation () {
           </List>
         </Appear>
         <Appear>
-          <Heading size={2}>全部違いまーす</Heading>
+          <Heading size={2} textColor={colors.white}>全部違いまーす</Heading>
         </Appear>
       </Slide>
-      <Slide transition={['fade']} bgcolor={colors.black}>
-        <Heading size={1} fit textcolor={colors.red}>
-          Can I Use?のこれです。
+      <Slide transition={['fade', 'slide']} bgColor={colors.black}>
+        <Heading size={1} fit textColor={colors.white}>
+          Can I Use?のバージョン分けです。
         </Heading>
         <Link
           href="https://caniuse.com/#comparison"
           target="_blank"
           textColor={colors.white}
+          textSize="1.8em"
         >
           https://caniuse.com/#comparison
         </Link>
-        <Heading size={2} margin="80px 0 0" textcolor={colors.red}>
+        <Heading size={2} margin="80px 0 0" textColor={colors.blue}>
           Safari 👀
         </Heading>
       </Slide>
-      <Slide transition={['fade']} bgcolor={colors.black}>
-        <Heading size={1} fit textcolor={colors.red}>
+      <Slide transition={['slide']} bgColor={colors.black}>
+        <Heading size={1} fit textColor={colors.white}>
           割合指定とかlast x versionsで設定書くと
         </Heading>
-        <Heading size={1} fit textcolor={colors.red}>
+        <Heading size={1} fit textColor={colors.white}>
           ビルドしたタイミング次第で出力結果が変わる可能性があるので
         </Heading>
-        <Heading size={1} fit textcolor={colors.red}>
+        <Heading size={1} fit textColor={colors.white}>
           基本中の基本ですが要求定義をきちっとやって
         </Heading>
-        <Heading size={1} fit textcolor={colors.red}>
+        <Heading size={1} fit textColor={colors.white}>
           具体的に書いたほうがいいんじゃないかな・・・
         </Heading>
-        <Heading size={1} fit margin="20px 0" textcolor={colors.red}>
+        <Heading size={1} fit margin="20px 0" textColor={colors.white}>
           参考:
           <Link
             href="https://github.com/google/web-starter-kit"
             target="_blank"
+            textColor={colors.white}
           >
             google/web-starter-kit
           </Link>
@@ -331,9 +331,9 @@ function Presentation () {
           <CodePane lang="js" source={sampleGoogle} margin="20px auto" />
         </Link>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} fit textColor={colors.red}>
-          browserslistをどこで設定すべきか
+      <Slide transition={['fade']} bgColor={colors.white}>
+        <Heading size={1} fit textColor={colors.black}>
+          browserslistを<br />どこで設定すべきか
         </Heading>
       </Slide>
       <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
@@ -347,15 +347,15 @@ function Presentation () {
           <ListItem>逆に設定しないでデフォルトに任せる</ListItem>
         </List>
       </Slide>
-      <Slide transition={['fade']} bgcolor={colors.black}>
-        <Heading size={1} fit textcolor={colors.red}>
+      <Slide transition={['fade']} bgColor={colors.green}>
+        <Heading size={1} fit textColor={colors.white}>
           package.json
         </Heading>
         <Appear>
           <CodePane lang="js" source={samplePackageJson} margin="20px auto" />
         </Appear>
         <Appear>
-          <Heading fit size={2} margin="0 0 50px">
+          <Heading fit size={2} margin="0 0 50px" textColor={colors.white}>
             これがおすすめ
           </Heading>
         </Appear>
@@ -373,12 +373,12 @@ function Presentation () {
           </List>
         </Appear>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
-        <Heading fit size={2} margin="0 0 50px">
+      <Slide transition={['fade']} bgColor={colors.black} textColor={colors.white}>
+        <Heading fit size={2} margin="0 0 50px" textColor={colors.white}>
           babel-preset-envにやさしいって何
         </Heading>
         <Appear>
-          <Text fit margin="30px 0px" textColor={colors.black} bold>
+          <Text fit margin="30px 0px" textColor={colors.red} bold>
             babel-preset-envは現バージョン(v1.x)では<br />
             package.jsonや.browserslistrcや引数に設定書いても<br />
             効かない・・・・・・・・・・・・・・・・ 😰
@@ -388,90 +388,82 @@ function Presentation () {
           <Image src={images.imageGithubPR} />
         </Appear>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
+      <Slide transition={['fade']} bgColor={colors.white}>
         <Heading fit size={2} margin="0 0 50px">
-          そこでpackage.json
+          Q.それでもpackage.json押すのはなぜ？
         </Heading>
         <Appear>
-          <Heading fit size={2} margin="0 0 50px">
-            package.jsonはよく考えたらjsonなので
-          </Heading>
-        </Appear>
-        <Appear>
-          <Heading fit size={1} margin="0 0 50px">
-            各Configファイルから簡単にrequireできる
+          <Heading fit size={2} margin="0 0 50px" textColor={colors.green}>
+            A.package.jsonはよく考えたら<br />
+            単なるjsonなので<br />
+            たいていのConfigファイルから<br />
+            簡単にrequireできるから。
           </Heading>
         </Appear>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
-        <Heading fit size={1} margin="0 0 50px">
+      <Slide transition={['fade']} bgColor={colors.orange}>
+        <Heading fit size={1} margin="0 0 50px" textColor={colors.white}>
           とあるwebpack.config.js(抜粋)
         </Heading>
         <Appear>
           <CodePane lang="js" source={sampleWebpackConfig} margin="20px auto" />
         </Appear>
       </Slide>
-      <Slide transition={['slide']} bgColor={colors.yellow} textColor={colors.black}>
+      <Slide transition={['fade', 'slide']} bgColor={colors.yellow} textColor={colors.black}>
         <Text textAlign="left">.babelrcが使えなくなっちゃうとか</Text>
         <Text textAlign="left">他にもいろいろ問題あるんだろうけど・・・</Text>
-        <Appear>
-          <Text bold fit margin="10px auto">今はそれでもこのやりかたがいいんじゃないかな。</Text>
-        </Appear>
-        <Appear>
-          <Text bold fit margin="10px auto 0">babel-preset-env v2が出るまでの辛抱。のはず</Text>
-        </Appear>
-        <Appear>
-          <Text bold fit margin="10px auto 0">(babel-preset-env諦めりゃいいんだけどね)</Text>
-        </Appear>
+        <Text bold fit margin="10px auto">今はそれでもこのやりかたがいいんじゃないかな。</Text>
+        <Text bold fit margin="10px auto 0">babel-preset-env v2が出るまでの辛抱。のはず</Text>
+        <Text bold fit margin="10px auto 0">(babel-preset-env諦めりゃいいんだけどね)</Text>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} fit textColor={colors.red}>
+      <Slide transition={['slide']} bgColor={colors.white}>
+        <Heading size={1} fit textColor={colors.black}>
           設定サンプル&ちょっとしたUtil
         </Heading>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} fit textColor={colors.red}>
+      <Slide transition={['fade']} bgColor={colors.green}>
+        <Heading size={1} fit textColor={colors.white}>
           こちらに用意しました<br />
           <Link
-            href="http://browserl.ist/"
+            href="https://github.com/kaave/browserslist-sample"
             target="_blank"
-            textColor={colors.red}
+            textColor={colors.white}
           >
-            Linkまだ！
+            https://github.com/kaave/browserslist-sample
           </Link>
         </Heading>
         <Appear>
-          <List type="none" textColor="#fff">
+          <List type="none" textColor={colors.white}>
             <ListItem>package.jsonにbrowserslistを設定</ListItem>
             <ListItem>npm startで設定にマッチするブラウザの一覧や利用者の割合を取得</ListItem>
-            <ListItem>素babel, browserify, webpack, gulp-autoprefixer, PostCSSでのautoprefixerなどのサンプルを作っておきました</ListItem>
+            <ListItem>素babel, browserify, webpack, gulp-autoprefixer, PostCSSでのautoprefixerなどの設定サンプル</ListItem>
             <ListItem>npm run buildで実際にJS/CSSをビルド</ListItem>
           </List>
         </Appear>
       </Slide>
-      <Slide transition={['fade']} bgColor={colors.black}>
-        <Heading size={1} textColor={colors.red}>
+      <Slide transition={['slide']} bgImage={images.bgUyghur} bgDarken={0.3}>
+        <Heading size={1} textColor={colors.white}>
           まとめ
         </Heading>
         <Appear>
-          <List textColor="#fff">
+          <List textColor={colors.white}>
             <ListItem>browserslistはブラウザ指定ライブラリ</ListItem>
-            <ListItem>普段使ってるいろんなツールが頼ってる</ListItem>
             <ListItem>Can I Use?と密接な関係にあるので注意</ListItem>
             <ListItem>現状package.jsonに設定するのが良さげ</ListItem>
             <ListItem>きっちり設定して、対応端末を明確に</ListItem>
-            <ListItem>僕のサンプルも見といてね</ListItem>
+            <ListItem>babel-preset-envはv2が出るまでめんどい</ListItem>
+            <ListItem>僕のサンプルも良かったら見といてね</ListItem>
           </List>
         </Appear>
       </Slide>
-      <Slide transition={'fade'} bgImage={images.bgSunset} bgDarken={0.1}>
+      <Slide transition={['zoom', 'slide']} bgImage={images.bgSunset} bgDarken={0.3}>
         <Heading size={2} textColor={colors.white}>
           Thank you !! 🎉
         </Heading>
         <Heading margin="20px 0 0" size={4} textColor={colors.white}>
           参考資料・利用素材
         </Heading>
-        <List>
+        <List textColor={colors.white}>
           {[
             { title: 'ai/browserslist', href: 'https://github.com/ai/browserslist' },
             { title: 'Promote shareable browserslist config', href: 'https://github.com/babel/babel-preset-env/issues/108' },
