@@ -185,7 +185,7 @@ function Presentation () {
         </Heading>
       </Slide>
       <Slide transition={['slide']} bgColor={colors.green} textColor={colors.white}>
-        <Heading fit size={2} margin="0 0 50px" textColor={colors.white}>
+        <Heading fit size={2} margin="0 0 10px" textColor={colors.white}>
           こんな感じのクエリを<br />組み合わせて指定します
         </Heading>
         <Link
