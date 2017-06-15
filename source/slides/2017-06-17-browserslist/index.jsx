@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { format } from 'date-fns';
 import { Appear, BlockQuote, Cite, CodePane, ComponentPlayground, Deck, Fill, Heading, Image, Layout, Link, List, ListItem, Markdown, MarkdownSlides, Quote, Slide, SlideSet, Table, TableBody, TableHeader, TableHeaderItem, TableItem, TableRow, Text } from 'spectacle';
-import { Tweet } from 'react-twitter-widgets';
 import InstagramEmbed from 'react-instagram-embed';
 import createTheme from 'spectacle/lib/themes/default';
 import preloader from 'spectacle/lib/utils/preloader';
@@ -104,7 +103,7 @@ function Presentation () {
         <Layout>
           <Fill>
             <InstagramEmbed url="https://www.instagram.com/p/BTbR7QCFwxk/" maxWidth={160} hideCaption />
-            <InstagramEmbed url="https://www.instagram.com/p/BR-bs3hFuiF/" maxWidth={160} hideCaption />
+            <InstagramEmbed url="https://www.instagram.com/p/BVTuq9glm8q/" maxWidth={160} hideCaption />
           </Fill>
           <Fill>
             <InstagramEmbed url="https://www.instagram.com/p/BTaaKCclm4I/" maxWidth={160} hideCaption />
