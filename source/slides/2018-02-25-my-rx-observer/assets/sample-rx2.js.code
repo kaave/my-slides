@@ -1,0 +1,15 @@
+/*
+ * バニラ
+ */
+setTimeout(() => console.log('waited 1 sec.'), 1000);
+
+/*
+ * RxJS
+ */
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+
+Observable.of('waited 1 sec')
+  .delay(1000)
+  .subscribe(message => console.log(message));

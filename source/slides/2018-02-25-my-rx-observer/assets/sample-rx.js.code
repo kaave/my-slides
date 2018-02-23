@@ -1,0 +1,17 @@
+/*
+ * バニラ
+ */
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  console.log('click');
+});
+
+/*
+ * RxJS
+ */
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/observable/fromEvent';
+
+const button = document.querySelector('button');
+Observable.fromEvent(button, 'click')
+  .subscribe(() => console.log('click'));
