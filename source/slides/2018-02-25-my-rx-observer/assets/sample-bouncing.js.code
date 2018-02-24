@@ -1,0 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import 'my-easing/add/bouncing';
+
+Observable.bouncing({ height: 500, gravity: 0.9 })
+  .subscribe(msec => console.log(new Date(), msec));

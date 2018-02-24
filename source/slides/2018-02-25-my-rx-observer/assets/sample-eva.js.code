@@ -1,0 +1,14 @@
+import { Observable } from 'rxjs/Observable';
+
+import '../add/sequencer';
+
+Observable.sequencer({
+  bpm: 128,
+  // xで発火 -は休符
+  pattern: `
+x---x---x--x--x-
+x-x-x-x-xx-x----
+x---x---x---x-x-
+x-x-x-x---x---x-
+`,
+}).subscribe(index => console.log(new Date(), index));

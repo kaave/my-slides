@@ -1,0 +1,20 @@
+export default function getEasingObserver({
+  type,
+  durationMSec,
+  end,
+  start: propStart,
+  frameRate: propFrameRate,
+}: Props): Observable<number> {
+  const start = propStart || 0;
+  const frameRate = propFrameRate || 60;
+  const intervalMSec = 1000 / frameRate;
+  const easing = getBezierEasing(type);
+  const endObserver = Observable.of(end);
+  const length = end - start;
+
+  return Observable.timer(0, intervalMSec, animationFrame)
+    .takeUntil(Observable.timer(durationMSec))
+    .map(value => value * intervalMSec)
+    .map(time => start + easing(time / durationMSec) * length)
+    .concat(endObserver);
+}
