@@ -28,6 +28,7 @@ import bgDesk from './assets/images/desk.jpg';
 import bgEtc from './assets/images/etc.jpg';
 import bgFl1 from './assets/images/fl_1.jpg';
 import bgFl2 from './assets/images/fl_2.jpg';
+import imageFlBeat from './assets/images/fl_beat.png';
 import bgSunset from './assets/images/sunset.jpg';
 
 GoogleFonts.add({
@@ -60,7 +61,7 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-const images = { bgFood1, bgFood2, bgFood3, bgFood4, bgFood5, bgFl1, bgFl2, bgSwitch, bgDesk, bgEtc, bgSunset };
+const images = { bgFood1, bgFood2, bgFood3, bgFood4, bgFood5, bgFl1, bgFl2, bgSwitch, bgDesk, bgEtc, bgSunset, imageFlBeat };
 preloader(images);
 const birthDay = new Date(Date.now() - new Date(1982, 9 - 1, 24, 6, 0, 0).getTime());
 
@@ -129,6 +130,7 @@ function Presentation () {
     </Slide>
     <Slide transition={['slide', 'fade']} bgColor={colors.black}>
       <Heading size={1} fit textColor={colors.red}>
+        今日は最近の趣味を強引にまとめて話すため、<br />
         Rxを曲解したような話を連発するので、<br />
         スタンダードな話を聞きたい人はこのあと個別に聞いてください
       </Heading>
@@ -298,9 +300,7 @@ function Presentation () {
       <Appear>
         <Text textColor={colors.white} margin="30px 0 0">
           スーパーボールのように<br />
-          ビヨンビヨン跳ねるノリをRxJSで再現<br />
-          (でも面倒だから設置のタイミングで<br />
-          イベント発火するものとします)<br />
+          ビヨンビヨン跳ねるノリをRxJSで再現
           <br />
           文言で語るの微妙なので後ほどデモで
         </Text>
@@ -402,9 +402,10 @@ function Presentation () {
       <Heading size={1} fit textColor={colors.black}>
         この人の曲の特徴として、ヨレっぷり<br />
         (正確なタイミングで音をならさず<br />
-        わざと早め/遅めに鳴らす)が<br />
+        わざと早め/遅めに鳴らす 決まるとかっこいい)が<br />
         半端ない
       </Heading>
+      <Image src={images.imageFlBeat} width="100%" />
       <Appear>
         <Text margin="20px auto" fit>
           RxJSで再現してみましょう
@@ -456,7 +457,7 @@ function Presentation () {
             ・シーケンサーできた
           </ListItem>
           <ListItem>カットアップ的にばしばし要素を切り替えるのはWebでもやっぱりかっこいい</ListItem>
-          <ListItem>正確なタイミングからちょっとズラしたカッコよさはWebでも有効</ListItem>
+          <ListItem>正確なタイミングからちょっとズラしたカッコよさはWebでも有効…かな？</ListItem>
         </List>
       </Appear>
     </Slide>
