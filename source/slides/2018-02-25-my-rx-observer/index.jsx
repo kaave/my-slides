@@ -157,16 +157,16 @@ function Presentation () {
       <Heading size={2} fit textColor={colors.pink}>
           RxJSとは？
         </Heading>
-      <Appear>
-        <Text margin="20px auto" textColor={colors.white}>
-            非同期処理の便利ライブラリっぽいもの
+        <Appear>
+          <Text margin="20px auto" textColor={colors.white}>
+            非同期処理を抽象化して色々便利にするやつ<br />
+            ※ユーザ入力、タイマー系処理、通信処理etcetc
           </Text>
       </Appear>
       <Appear>
         <Text margin="20px auto" textColor={colors.white}>
             DOM操作(+α)のjQuery<br />
-            Array, Object操作(+α)のlodash<br />
-            非同期処理(+α)のRxJS って感じ
+            非同期処理のRxJS...かな？めちゃ強引です
         </Text>
       </Appear>
       <Appear>
@@ -202,12 +202,13 @@ function Presentation () {
         </Text>
       <Text bold textAlign="center" margin="10px 0 0">
           RxPHP
-        </Text>
+      </Text>
 
       <Appear>
         <Text margin="20px auto">
             👉 一度覚えると<br />
-            いろんな言語で知識を使いまわせるのでお得
+            いろんな言語で知識を使いまわせるのでお得<br />
+            モバイルアプリはほぼ必須？(最近触ってないからあんま知らない)
           </Text>
       </Appear>
     </Slide>
