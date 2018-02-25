@@ -3,20 +3,19 @@ import { Observable } from 'rxjs/Observable';
 import '../add/sequencer';
 
 Observable.sequencer({
-  bpm: 128,
-  pattern: `
-x---x---x--x--x-
-x-x-x-x-xx-x----
-x---x---x--x--x-
-x-x-x-x-xx-x----
-`,
-  /** ヨレっぷりをプログラミング */
+  bpm: 91,
+  pattern: 'x--xx---|xx-xx---|x--xx---|xx-xx---',
   quantize(index: number, msec: number) {
-    const beatIndex = index % 16;
-    if (beatIndex === 8) {
-      return msec * -0.1;
+    const beatIndex = index % 16 + 1;
+    switch (beatIndex) {
+      case 4:
+        return msec * 0.4;
+      case 5:
+        return msec * 0.3;
+      case 12:
+        return msec * 0.2;
+      default:
+        return 0;
     }
-
-    return 0;
   },
 }).subscribe(index => console.log(new Date(), index));

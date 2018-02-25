@@ -11,6 +11,7 @@ import 'spectacle/lib/themes/default/index.css';
 
 import sampleRx from './assets/sample-rx.js.code';
 import sampleRx2 from './assets/sample-rx2.js.code';
+import sampleEasing from './assets/sample-easing.js.code';
 import sampleBouncing from './assets/sample-bouncing.js.code';
 import sampleEva from './assets/sample-eva.js.code';
 import sampleFlyingLotus from './assets/sample-fl.js.code';
@@ -26,8 +27,6 @@ import bgFood5 from './assets/images/food_5.jpg';
 import bgSwitch from './assets/images/switch.jpg';
 import bgDesk from './assets/images/desk.jpg';
 import bgEtc from './assets/images/etc.jpg';
-import bgFl1 from './assets/images/fl_1.jpg';
-import bgFl2 from './assets/images/fl_2.jpg';
 import imageFlBeat from './assets/images/fl_beat.png';
 import bgSunset from './assets/images/sunset.jpg';
 
@@ -61,7 +60,7 @@ const theme = createTheme({
   quartenary: 'monospace'
 });
 
-const images = { bgFood1, bgFood2, bgFood3, bgFood4, bgFood5, bgFl1, bgFl2, bgSwitch, bgDesk, bgEtc, bgSunset, imageFlBeat };
+const images = { bgFood1, bgFood2, bgFood3, bgFood4, bgFood5, bgSwitch, bgDesk, bgEtc, bgSunset, imageFlBeat };
 preloader(images);
 const birthDay = new Date(Date.now() - new Date(1982, 9 - 1, 24, 6, 0, 0).getTime());
 
@@ -210,7 +209,8 @@ function Presentation () {
         <Text margin="20px auto">
             👉 一度覚えると<br />
             いろんな言語で知識を使いまわせるのでお得<br />
-            モバイルアプリはほぼ必須？(最近触ってないからあんま知らない)
+            モバイルアプリはほぼ必須？<br />
+            (最近触ってないからあんま知らないです)
           </Text>
       </Appear>
     </Slide>
@@ -261,7 +261,7 @@ function Presentation () {
           ので作ってみました
         </Heading>
       <Appear>
-        <CodePane lang="js" source={sampleRx} margin="20px auto" />
+        <CodePane lang="js" source={sampleEasing} margin="20px auto" />
       </Appear>
       <Appear>
         <Text bold margin="20px auto">
@@ -457,7 +457,14 @@ function Presentation () {
             ・シーケンサーできた
           </ListItem>
           <ListItem>カットアップ的にばしばし要素を切り替えるのはWebでもやっぱりかっこいい</ListItem>
-          <ListItem>正確なタイミングからちょっとズラしたカッコよさはWebでも有効…かな？</ListItem>
+          <ListItem>
+            正確なタイミングからちょっとズラしたカッコよさはWebでも有効
+            <Appear>
+              <Text>
+                …かな？
+              </Text>
+            </Appear>
+          </ListItem>
         </List>
       </Appear>
     </Slide>

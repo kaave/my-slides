@@ -1,0 +1,7 @@
+import { Observable } from 'rxjs/Observable';
+import 'my-easing/add/easing';
+
+Observable.easing({ type: 'ease-out-expo', durationMSec: 20000, end: message.length - 1 })
+  .map(value => Math.floor(value))
+  .distinct()
+  .subscribe(index => console.log(index));
