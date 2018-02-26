@@ -11,9 +11,9 @@ button.addEventListener('click', () => {
  */
 import { Observable } from 'rxjs/observable';
 import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/throttleTime';
 
 const button = document.querySelector('button');
 Observable.fromEvent(button, 'click')
-  .debounceTime(1000)  // ついでに1度クリックされたら1秒以上間を開けないとスルーする
+  .throttleTime(1000)  // ついでに1度クリックされたら1秒以上間を開けないとスルーする
   .subscribe(() => console.log('click'));
